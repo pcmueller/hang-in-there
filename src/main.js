@@ -107,8 +107,6 @@ var currentPoster;
 var currImage = getRandomIndex(images);
 var currTitle = getRandomIndex(titles);
 var currQuote = getRandomIndex(quotes);
-var image = document.querySelector('.poster-img');
-var title = document.querySelector('.poster-title');
 
 // event listeners go here 👇
 
@@ -118,19 +116,58 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+// auto-invoke buildCurrentPoster when loading page
+
+window.onload = buildCurrentPoster;
+
+    // alternate code - also works!!
+// document.addEventListener("DOMContentLoaded", function() {
+//   buildCurrentPoster();
+// });
+
+
+
+
 function buildCurrentPoster() {
   image.src = images[currImage];
   title.innerText = titles[currTitle];
   quote.innerText = quotes[currQuote];
-};
 
-buildCurrentPoster()
+
+
+
+
+  // currentPoster = {
+  // would we want to create values for the currentPoster variable or instantiate a new object? Maybe this should be done in a different function and called on the button click
+  // }
+  console.log('currentPoster:', currentPoster);
+  console.log("CLICK");
+};
+// write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
+
+
+
+// target button element and assign to variable
+
+var button = document.querySelector('.show-random');
+button.addEventListener('click', buildCurrentPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
+
+
+// assign eventListener to button variables
+
+
+
+// call buildCurrentPoster function within eventListener assignment
+
+// buildCurrentPoster();
+
+
 
 // ITERATION 0
 // 1)   When the page loads, we should see a poster with a randomly selected image, title, and quote
 // i)   On page load, generate random image, title, quote
   // √ write a function to generate a random index
-  // write a function that will call the random index function for each data array `images`, `titles`, and `quotes`
+  // √ write a function that will call the random index function for each data array `images`, `titles`, and `quotes`
   // write a function to push values to a new object, stored in the currentPoster variable
   // use a for loop? loop through each array to getRandomIndex() and
   // currentPoster should hold an object?
@@ -143,3 +180,26 @@ buildCurrentPoster()
   // generate random index for each variable array
   // generate value by calling array[i] and pushing value into empty `currentPoster` object
   // display values in the browser
+
+// ITERATION 1 - Switching Views - GOAL: get through 1/3 on Thursday eve; complete Friday during afternoon work session
+// 1) When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
+// 2) When a user clicks the “View Saved Posters” button, we should see the saved posters area, and the main poster should be hidden
+// 3) When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
+//    In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
+
+// ITERATION 2 - Creating a New Poster - GOAL: complete Friday evening
+// On the new poster form view, users should be able to fill out the three input fields and then hit the save button
+// When the save button is clicked, several things will happen:
+// Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
+// Use the values from the inputs to create a new instance of our Poster class
+// Change back to the main poster view (hiding the form view again)
+// Display the newly created poster image, title, and quote in the main view
+
+// ITERATION 3 - Saving & Viewing Posters - GOAL: complete Saturday evening; refactor Sunday and work on the README; review DTR
+// When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+// If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+// All the posters in the savedPosters array should be displayed in the saved posters grid section
+
+// ITERATION 4 - Deleting Saved Posters - STRETCH GOAL: if we complete iteration 3 goals early (on Saturday) we will divide and each attempt iteration 4 (with communication)
+// From the saved posters view, if a user double clicks a saved poster, it will be deleted

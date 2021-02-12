@@ -2,6 +2,8 @@
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
+var buttonRandom = document.querySelector('.show-random');
+
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -104,11 +106,13 @@ var quotes = [
 
 var savedPosters = [];
 var currentPoster;
-var currImage = getRandomIndex(images);
-var currTitle = getRandomIndex(titles);
-var currQuote = getRandomIndex(quotes);
+
 
 // event listeners go here 👇
+
+window.addEventListener('load', buildRandomPoster);
+buttonRandom.addEventListener('click', buildRandomPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -116,51 +120,34 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-// auto-invoke buildCurrentPoster when loading page
+// buildRandomPoster function
 
-window.onload = buildCurrentPoster;
-
-    // alternate code - also works!!
-// document.addEventListener("DOMContentLoaded", function() {
-//   buildCurrentPoster();
-// });
-
-
-
-
-function buildCurrentPoster() {
-  image.src = images[currImage];
-  title.innerText = titles[currTitle];
-  quote.innerText = quotes[currQuote];
-
-
-
-
-
-  // currentPoster = {
-  // would we want to create values for the currentPoster variable or instantiate a new object? Maybe this should be done in a different function and called on the button click
-  // }
-  console.log('currentPoster:', currentPoster);
-  console.log("CLICK");
+function buildRandomPoster() {
+  var randomImage = images[getRandomIndex(images)];
+  var randomTitle = titles[getRandomIndex(titles)];
+  var randomQuote = quotes[getRandomIndex(quotes)];
+  image.src = randomImage;
+  title.innerText = randomTitle;
+  quote.innerText = randomQuote;
+    // figure out how to import/require poster.js, so that we can start using our class!
+  currentPoster = new Poster(randomImage, randomTitle, randomQuote);
 };
+
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 
-
-
-// target button element and assign to variable
-
-var button = document.querySelector('.show-random');
-button.addEventListener('click', buildCurrentPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
-
+// something like this for image/title/quote? :
+//
+// if (image.src === randomImage) {
+//   buildRandomPoster;
+// } else {
+//   image.src === randomImage;
+// }
 
 // assign eventListener to button variables
-
-
 
 // call buildCurrentPoster function within eventListener assignment
 
 // buildCurrentPoster();
-
 
 
 // ITERATION 0
@@ -177,7 +164,7 @@ button.addEventListener('click', buildCurrentPoster); //instead of having this c
 
 // 2)   Every time the user clicks the Show Random Poster button, a new random poster is displayed.
 // i)   Functionality should follow pattern above:
-  // generate random index for each variable array
+  // √ generate random index for each variable array
   // generate value by calling array[i] and pushing value into empty `currentPoster` object
   // display values in the browser
 

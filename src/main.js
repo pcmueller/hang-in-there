@@ -1,11 +1,24 @@
 // query selector variables go here 👇
+
+// display elements
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
+
+// buttons inside form
+var buttonSavePoster = document.querySelector('.save-form');
+var buttonViewPoster = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
+var buttonMakePoster = document.querySelector('.show-form');
+
+// buttons outside form
+var buttonNevermind = document.querySelector('.show-main');
+var buttonBackToMain = document.querySelector('.back-to-main');
 
 
 // we've provided you with some data to work with 👇
+
+// static arrays
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -104,15 +117,27 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 
+// dynamic functions
 var savedPosters = [];
 var currentPoster;
 
 
 // event listeners go here 👇
 
+// show random poster on load
 window.addEventListener('load', buildRandomPoster);
-buttonRandom.addEventListener('click', buildRandomPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
 
+// form button listeners
+
+buttonSavePoster.addEventListener('click', action); // SEE ITERATION 2
+buttonViewPoster.addEventListener('click', action); // display the saved posters area, and the main poster should be hidden
+buttonRandom.addEventListener('click', buildRandomPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
+buttonMakePoster.addEventListener('click', action); // display the form, and the main poster should be hidden
+
+// other button listeners
+
+buttonNevermind.addEventListener('click', action);  // show only the main poster section
+buttonBackToMain.addEventListener('click', action); // show only the main poster section
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -133,6 +158,10 @@ function buildRandomPoster() {
   currentPoster = new Poster(randomImage, randomTitle, randomQuote);
 };
 
+function saveCurrentPoster(current) {
+  savedPosters.push(current);
+}
+
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 
 // something like this for image/title/quote? :
@@ -144,6 +173,8 @@ function buildRandomPoster() {
 // }
 
 // assign eventListener to button variables
+
+
 
 // call buildCurrentPoster function within eventListener assignment
 

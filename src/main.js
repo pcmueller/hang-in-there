@@ -137,8 +137,8 @@ window.addEventListener('load', buildRandomPoster);
 // main button listeners
 
 buttonSavePoster.addEventListener('click', function() {
-  pushValues;
-  saveCurrentPoster;
+  pushValues();
+  saveCurrentPoster();
 });
 
 buttonShowSaved.addEventListener('click', showSaved); // display the saved posters area, and the main poster should be hidden
@@ -163,9 +163,6 @@ function buildRandomPoster() {
   image.src = images[getRandomIndex(images)];
   title.innerText = titles[getRandomIndex(titles)];
   quote.innerText = quotes[getRandomIndex(quotes)];
-  // image.src = randomImage;
-  // title.innerText = randomTitle;
-  // quote.innerText = randomQuote;
   currentPoster = new Poster(image.src, title.innerText, quote.innerText);
 };
 
@@ -218,28 +215,9 @@ function showUserPoster() {
 //   break;
 // }
 
-// assign eventListener to button variables
-
-
-
-// call buildCurrentPoster function within eventListener assignment
-
-// buildCurrentPoster();
-
-
-
-// √ ITERATION 2 - Creating a New Poster - GOAL: complete Friday evening; REALITY: completed with bug fixed Saturday morning 1000
-// √ On the new poster form view, users should be able to fill out the three input fields and then hit the save button
-// √ When the save button is clicked, several things will happen:
-// √ Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
-// √ Use the values from the inputs to create a new instance of our Poster class
-// √ Change back to the main poster view (hiding the form view again)
-// √ Display the newly created poster image, title, and quote in the main view
 
 // ITERATION 3 - Saving & Viewing Posters - GOAL: complete Saturday evening; refactor Sunday and work on the README; review DTR
-// When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
-// on button click, the newly created `currentPoster` will be added to the `savedPosters` array. {nd}
-// this will require targeting the button, creating an event listener, and calling the `saveCurrentPoster` function on lines 194 - 196 {nd}
+// √ When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
 // If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
 // if the value already exists within an array, do not push the value {nd}
 // if statement - if the array includes the value do not push the value, else push the value {nd}

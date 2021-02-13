@@ -10,7 +10,7 @@ var mainPoster = document.querySelector('.main-poster');
 var savedPostersView = document.querySelector('.saved-posters');
 
 // main buttons
-// var buttonSavePoster = document.querySelector('.save-poster');
+var buttonSavePoster = document.querySelector('.save-poster');
 var buttonShowSaved = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
 var buttonMakePoster = document.querySelector('.show-form');
@@ -166,7 +166,7 @@ function buildRandomPoster() {
   // image.src = randomImage;
   // title.innerText = randomTitle;
   // quote.innerText = randomQuote;
-  // currentPoster = new Poster(image.src, title.innerText, quote.innerText);
+  currentPoster = new Poster(image.src, title.innerText, quote.innerText);
 };
 
 function showForm() {

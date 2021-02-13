@@ -228,19 +228,28 @@ function showUserPoster() {
 
 
 
-// ITERATION 2 - Creating a New Poster - GOAL: complete Friday evening
-// On the new poster form view, users should be able to fill out the three input fields and then hit the save button
-// When the save button is clicked, several things will happen:
-// Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
-// Use the values from the inputs to create a new instance of our Poster class
-// Change back to the main poster view (hiding the form view again)
-// Display the newly created poster image, title, and quote in the main view
+// √ ITERATION 2 - Creating a New Poster - GOAL: complete Friday evening; REALITY: completed with bug fixed Saturday morning 1000
+// √ On the new poster form view, users should be able to fill out the three input fields and then hit the save button
+// √ When the save button is clicked, several things will happen:
+// √ Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
+// √ Use the values from the inputs to create a new instance of our Poster class
+// √ Change back to the main poster view (hiding the form view again)
+// √ Display the newly created poster image, title, and quote in the main view
 
 // ITERATION 3 - Saving & Viewing Posters - GOAL: complete Saturday evening; refactor Sunday and work on the README; review DTR
 // When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+// on button click, the newly created `currentPoster` will be added to the `savedPosters` array. {nd}
+// this will require targeting the button, creating an event listener, and calling the `saveCurrentPoster` function on lines 194 - 196 {nd}
 // If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// if the value already exists within an array, do not push the value {nd}
+// if statement - if the array includes the value do not push the value, else push the value {nd}
 // When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-// All the posters in the savedPosters array should be displayed in the saved posters grid section
+// hide the main poster view and display the saved posters section {nd}
+// this functionality was part of iteration 1, wasn't it? it already does this
+// All the posters in the `savedPosters` array should be displayed in the saved posters grid section
+// all elements stored within the `savedPosters` array will be displayed on the page {nd}
+// build a function that will display all the saved posters; might this use innerHTML? {nd}
+// there is a class `saved-posters-grid` on line 38 of the HTML that will likely come into play here {nd}
 
 // ITERATION 4 - Deleting Saved Posters - STRETCH GOAL: if we complete iteration 3 goals early (on Saturday) we will divide and each attempt iteration 4 (with communication)
 // From the saved posters view, if a user double clicks a saved poster, it will be deleted

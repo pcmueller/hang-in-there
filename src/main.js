@@ -10,7 +10,7 @@ var mainPoster = document.querySelector('.main-poster');
 var savedPostersView = document.querySelector('.saved-posters');
 
 // main buttons
-var buttonSavePoster = document.querySelector('.save-form');
+var buttonSavePoster = document.querySelector('.save-poster');
 var buttonShowSaved = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
 var buttonMakePoster = document.querySelector('.show-form');
@@ -136,16 +136,20 @@ window.addEventListener('load', buildRandomPoster);
 
 // main button listeners
 
-// buttonSavePoster.addEventListener('click', action); // SEE ITERATION 2
+buttonSavePoster.addEventListener('click', function() {
+  pushValues;
+  saveCurrentPoster;
+});
+
 buttonShowSaved.addEventListener('click', showSaved); // display the saved posters area, and the main poster should be hidden
-buttonRandom.addEventListener('click', buildRandomPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
+buttonRandom.addEventListener('click', buildRandomPoster); // instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
 buttonMakePoster.addEventListener('click', showForm); // display the form, and the main poster should be hidden
 
 // other button listeners
 
 buttonNevermind.addEventListener('click', takeMeBack);  // show only the main poster section
 buttonBackToMain.addEventListener('click', takeMeBack); // show only the main poster section
-buttonShowPoster.addEventListener('click', showUserPoster);
+buttonShowPoster.addEventListener('click', showUserPoster); // display user poster back on main
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -156,19 +160,14 @@ function getRandomIndex(array) {
 // buildRandomPoster function
 
 function buildRandomPoster() {
-  var randomImage = images[getRandomIndex(images)];
-  var randomTitle = titles[getRandomIndex(titles)];
-  var randomQuote = quotes[getRandomIndex(quotes)];
-  image.src = randomImage;
-  title.innerText = randomTitle;
-  quote.innerText = randomQuote;
-  // currentPoster = new Poster(randomImage, randomTitle, randomQuote);
+  image.src = images[getRandomIndex(images)];
+  title.innerText = titles[getRandomIndex(titles)];
+  quote.innerText = quotes[getRandomIndex(quotes)];
+  // image.src = randomImage;
+  // title.innerText = randomTitle;
+  // quote.innerText = randomQuote;
+  currentPoster = new Poster(image.src, title.innerText, quote.innerText);
 };
-
-function saveCurrentPoster(current) {
-  savedPosters.push(current);
-}
-// This function may need to used savedPosters.push(currentPoster) - do we have a variable named current? I wasn't sure what this was referring to {nd}
 
 function showForm() {
   posterForm.classList.remove('hidden');
@@ -192,18 +191,16 @@ function pushValues() {
   quotes.push(quote.innerText);
 }
 
+function saveCurrentPoster() {
+  savedPosters.push(currentPoster);
+}
+// // This function may need to used savedPosters.push(currentPoster) - do we have a variable named current? I wasn't sure what this was referring to {nd}
+
 function showUserPoster() {
   event.preventDefault(event);
-  // var userImage = imageInput.value;
-  // var userTitle = titleInput.value;
-  // var userQuote = quoteInput.value;
-  // image.src = userImage;
-  // title.innerText = userTitle;
-  // quote.innerText = userQuote;
   image.src = imageInput.value;
   title.innerText = titleInput.value;
   quote.innerText = quoteInput.value;
-  // console.log(userImage, userTitle, userQuote);
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
   takeMeBack();
 }

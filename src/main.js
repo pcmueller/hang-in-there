@@ -8,7 +8,7 @@ var quote = document.querySelector('.poster-quote');
 var posterForm = document.querySelector('.poster-form');
 var mainPoster = document.querySelector('.main-poster');
 var savedPostersView = document.querySelector('.saved-posters');
-var posterGrid = document.getElementByClass('saved-posters-grid');
+var posterGrid = document.getElementsByClassName('saved-posters-grid');
 
 // main buttons
 var buttonSavePoster = document.querySelector('.save-poster');
@@ -143,7 +143,8 @@ buttonSavePoster.addEventListener('click', function() {
 buttonShowSaved.addEventListener('click', function() {
   showSaved();
   displayGrid();
-}
+});
+
 buttonRandom.addEventListener('click', buildRandomPoster); // instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
 buttonMakePoster.addEventListener('click', showForm); // display the form, and the main poster should be hidden
 
@@ -219,7 +220,15 @@ function takeMeBack() {
 
 function displayGrid() {
   for (var i = 0; i < savedPosters.length; i++) {
-    // postersGrid.innerHTML += savedPosters[i];
+    console.log(savedPosters[i].imageURL);
+    posterGrid.innerHTML += `
+      <article class="saved-posters-grid">
+        <img class="poster-img" src="${savedPosters[i].imageURL}">
+        <h1 class="poster-title">${savedPosters[i].title}</h1>
+        <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+      </article>
+    `;
+    // console.log('posterGrid:', posterGrid);
   }
 }
 

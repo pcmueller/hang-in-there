@@ -9,16 +9,19 @@ var posterForm = document.querySelector('.poster-form');
 var mainPoster = document.querySelector('.main-poster');
 var savedPostersView = document.querySelector('.saved-posters');
 
-// buttons inside form
+// main buttons
 var buttonSavePoster = document.querySelector('.save-form');
 var buttonShowSaved = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
 var buttonMakePoster = document.querySelector('.show-form');
 
-// buttons outside form
+// form buttons and inputs
 var buttonNevermind = document.querySelector('.show-main');
 var buttonBackToMain = document.querySelector('.back-to-main');
-
+var buttonShowPoster = document.querySelector('.make-poster');
+var imageInput = document.getElementById('poster-image-url').value;
+var titleInput = document.getElementById('poster-title');
+var quoteInput = document.getElementById('poster-quote');
 
 // we've provided you with some data to work with 👇
 
@@ -131,7 +134,7 @@ var currentPoster;
 // show random poster on load
 window.addEventListener('load', buildRandomPoster);
 
-// form button listeners
+// main button listeners
 
 // buttonSavePoster.addEventListener('click', action); // SEE ITERATION 2
 buttonShowSaved.addEventListener('click', showSaved); // display the saved posters area, and the main poster should be hidden
@@ -142,6 +145,7 @@ buttonMakePoster.addEventListener('click', showForm); // display the form, and t
 
 buttonNevermind.addEventListener('click', takeMeBack);  // show only the main poster section
 buttonBackToMain.addEventListener('click', takeMeBack); // show only the main poster section
+buttonShowPoster.addEventListener('click', showUserPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -182,14 +186,29 @@ function takeMeBack() {
   savedPostersView.classList.add('hidden');
 }
 
+function showUserPoster() {
+  // event.preventDefault(event);
+  var userImage = imageInput.value;
+  var userTitle = titleInput.value;
+  var userQuote = quoteInput.value;
+  image.src = userImage;
+  title.innerText = userTitle;
+  quote.innerText = userQuote;
+  console.log(userImage, userTitle, userQuote);
+    // figure out how to import/require poster.js, so that we can start using our class!
+  currentPoster = new Poster(userImage, userTitle, userQuote);
+}
+
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 
 // something like this for image/title/quote? :
-//
-// if (image.src === randomImage) {
-//   buildRandomPoster;
+// use a while loop so that 'while' the randomly-generated
+
+// if (randomImage === image.src) {
+//   continue (run randomizer again);
 // } else {
-//   image.src === randomImage;
+//   image.src = randomImage;
+//   break;
 // }
 
 // assign eventListener to button variables

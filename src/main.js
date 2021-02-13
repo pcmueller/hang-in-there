@@ -203,6 +203,7 @@ function showUserPoster() {
   quote.innerText = quoteInput.value;
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
   takeMeBack();
+  pushValues();
 }
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}

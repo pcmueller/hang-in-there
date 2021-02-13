@@ -191,9 +191,9 @@ function pushValues() {
   quotes.push(quote.innerText);
 }
 
-// function saveCurrentPoster() {
-//   savedPosters.push(currentPoster);
-// }
+function saveCurrentPoster() {
+  savedPosters.push(currentPoster);
+}
 // // This function may need to used savedPosters.push(currentPoster) - do we have a variable named current? I wasn't sure what this was referring to {nd}
 
 function showUserPoster() {

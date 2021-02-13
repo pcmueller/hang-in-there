@@ -128,13 +128,9 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
-
 // event listeners go here 👇
 
-// show random poster on load
 window.addEventListener('load', buildRandomPoster);
-
-// main button listeners
 
 buttonSavePoster.addEventListener('click', function() {
   pushValues();
@@ -152,12 +148,6 @@ buttonBackToMain.addEventListener('click', takeMeBack); // show only the main po
 buttonShowPoster.addEventListener('click', showUserPoster); // display user poster back on main
 
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
-
-// buildRandomPoster function
 
 function buildRandomPoster() {
   image.src = images[getRandomIndex(images)];
@@ -165,6 +155,45 @@ function buildRandomPoster() {
   quote.innerText = quotes[getRandomIndex(quotes)];
   currentPoster = new Poster(image.src, title.innerText, quote.innerText);
 };
+
+
+function saveCurrentPoster() {
+  if (!savedPosters.includes(currentPoster)){
+    savedPosters.push(currentPoster);
+  }
+}
+
+function showUserPoster() {
+  event.preventDefault(event);
+  image.src = imageInput.value;
+  title.innerText = titleInput.value;
+  quote.innerText = quoteInput.value;
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  takeMeBack();
+  pushValues();
+}
+
+// helper functions
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function pushValues() {
+  // images.push(image.src);
+  // titles.push(title.innerText);
+  // quotes.push(quote.innerText);
+
+  if (!images.includes(image.src)) {
+    images.push(image.src);
+  }
+  if (!titles.includes(title.innerText)) {
+    titles.push(title.innerText);
+  }
+  if (!quotes.includes(quote.innerText)) {
+    quotes.push(quote.innerText);
+  }
+}
 
 function showForm() {
   posterForm.classList.remove('hidden');
@@ -180,30 +209,6 @@ function takeMeBack() {
   posterForm.classList.add('hidden');
   mainPoster.classList.remove('hidden');
   savedPostersView.classList.add('hidden');
-}
-
-function pushValues() {
-  images.push(image.src);
-  titles.push(title.innerText);
-  quotes.push(quote.innerText);
-}
-
-function saveCurrentPoster() {
-  if (!savedPosters.includes(currentPoster)){
-    savedPosters.push(currentPoster);
-  }
-}
-
-// // This function may need to used savedPosters.push(currentPoster) - do we have a variable named current? I wasn't sure what this was referring to {nd}
-
-function showUserPoster() {
-  event.preventDefault(event);
-  image.src = imageInput.value;
-  title.innerText = titleInput.value;
-  quote.innerText = quoteInput.value;
-  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
-  takeMeBack();
-  pushValues();
 }
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}

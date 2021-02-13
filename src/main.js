@@ -6,6 +6,7 @@ var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
 var posterForm = document.querySelector('.poster-form');
+var mainPoster = document.querySelector('.main-poster');
 
 // buttons inside form
 var buttonSavePoster = document.querySelector('.save-form');
@@ -165,7 +166,8 @@ function saveCurrentPoster(current) {
 }
 
 function showForm() {
-  posterForm.classList.remove('.hidden');
+  posterForm.classList.remove('hidden');
+  mainPoster.classList.add('hidden');
 };
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}

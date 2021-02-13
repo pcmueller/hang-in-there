@@ -136,10 +136,10 @@ window.addEventListener('load', buildRandomPoster);
 
 // main button listeners
 
-// buttonSavePoster.addEventListener('click', function() {
-//   pushValues;
-//   saveCurrentPoster;
-// });
+buttonSavePoster.addEventListener('click', function() {
+  pushValues;
+  saveCurrentPoster;
+});
 
 buttonShowSaved.addEventListener('click', showSaved); // display the saved posters area, and the main poster should be hidden
 buttonRandom.addEventListener('click', buildRandomPoster); // instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future

@@ -189,8 +189,11 @@ function pushValues() {
 }
 
 function saveCurrentPoster() {
-  savedPosters.push(currentPoster);
+  if (!savedPosters.includes(currentPoster)){
+    savedPosters.push(currentPoster);
+  }
 }
+
 // // This function may need to used savedPosters.push(currentPoster) - do we have a variable named current? I wasn't sure what this was referring to {nd}
 
 function showUserPoster() {
@@ -218,7 +221,7 @@ function showUserPoster() {
 
 // ITERATION 3 - Saving & Viewing Posters - GOAL: complete Saturday evening; refactor Sunday and work on the README; review DTR
 // √ When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
-// If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// √ If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
 // if the value already exists within an array, do not push the value {nd}
 // if statement - if the array includes the value do not push the value, else push the value {nd}
 // When a user clicks the “Show Saved Posters” button, we should see the saved posters section

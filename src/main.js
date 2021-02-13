@@ -7,10 +7,11 @@ var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
 var posterForm = document.querySelector('.poster-form');
 var mainPoster = document.querySelector('.main-poster');
+var savedPostersView = document.querySelector('.saved-posters');
 
 // buttons inside form
 var buttonSavePoster = document.querySelector('.save-form');
-var buttonViewPoster = document.querySelector('.show-saved');
+var buttonShowSaved = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
 var buttonMakePoster = document.querySelector('.show-form');
 
@@ -133,7 +134,7 @@ window.addEventListener('load', buildRandomPoster);
 // form button listeners
 
 // buttonSavePoster.addEventListener('click', action); // SEE ITERATION 2
-// buttonViewPoster.addEventListener('click', action); // display the saved posters area, and the main poster should be hidden
+buttonShowSaved.addEventListener('click', showSaved); // display the saved posters area, and the main poster should be hidden
 buttonRandom.addEventListener('click', buildRandomPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
 buttonMakePoster.addEventListener('click', showForm); // display the form, and the main poster should be hidden
 
@@ -170,6 +171,11 @@ function showForm() {
   mainPoster.classList.add('hidden');
 };
 
+function showSaved() {
+  savedPostersView.classList.remove('hidden');
+  mainPoster.classList.add('hidden');
+}
+
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 
 // something like this for image/title/quote? :
@@ -189,26 +195,8 @@ function showForm() {
 // buildCurrentPoster();
 
 
-// ITERATION 0
-// 1)   When the page loads, we should see a poster with a randomly selected image, title, and quote
-// i)   On page load, generate random image, title, quote
-  // √ write a function to generate a random index
-  // √ write a function that will call the random index function for each data array `images`, `titles`, and `quotes`
-  // write a function to push values to a new object, stored in the currentPoster variable
-  // use a for loop? loop through each array to getRandomIndex() and
-  // currentPoster should hold an object?
-  // write a function that will display these values in the browser (`innerText` and `innerHTML` will be useful for this purpose)
-// ii)
-// iii)
-
-// 2)   Every time the user clicks the Show Random Poster button, a new random poster is displayed.
-// i)   Functionality should follow pattern above:
-  // √ generate random index for each variable array
-  // generate value by calling array[i] and pushing value into empty `currentPoster` object
-  // display values in the browser
-
 // ITERATION 1 - Switching Views - GOAL: get through 1/3 on Thursday eve; complete Friday during afternoon work session
-// 1) When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
+// √ 1) When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
 // 2) When a user clicks the “View Saved Posters” button, we should see the saved posters area, and the main poster should be hidden
 // 3) When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
 //    In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks

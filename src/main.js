@@ -227,11 +227,7 @@ function takeMeBack() {
 // ITERATION 3 - Saving & Viewing Posters - GOAL: complete Saturday evening; refactor Sunday and work on the README; review DTR
 // √ When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
 // √ If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
-// if the value already exists within an array, do not push the value {nd}
-// if statement - if the array includes the value do not push the value, else push the value {nd}
-// When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-// hide the main poster view and display the saved posters section {nd}
-// this functionality was part of iteration 1, wasn't it? it already does this
+// √ When a user clicks the “Show Saved Posters” button, we should see the saved posters section
 // All the posters in the `savedPosters` array should be displayed in the saved posters grid section
 // all elements stored within the `savedPosters` array will be displayed on the page {nd}
 // build a function that will display all the saved posters; might this use innerHTML? {nd}

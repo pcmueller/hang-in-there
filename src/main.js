@@ -19,7 +19,7 @@ var buttonMakePoster = document.querySelector('.show-form');
 var buttonNevermind = document.querySelector('.show-main');
 var buttonBackToMain = document.querySelector('.back-to-main');
 var buttonShowPoster = document.querySelector('.make-poster');
-var imageInput = document.getElementById('poster-image-url').value;
+var imageInput = document.getElementById('poster-image-url')
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
 
@@ -162,13 +162,13 @@ function buildRandomPoster() {
   image.src = randomImage;
   title.innerText = randomTitle;
   quote.innerText = randomQuote;
-    // figure out how to import/require poster.js, so that we can start using our class!
-  currentPoster = new Poster(randomImage, randomTitle, randomQuote);
+  // currentPoster = new Poster(randomImage, randomTitle, randomQuote);
 };
 
 function saveCurrentPoster(current) {
   savedPosters.push(current);
 }
+// This function may need to used savedPosters.push(currentPoster) - do we have a variable named current? I wasn't sure what this was referring to {nd}
 
 function showForm() {
   posterForm.classList.remove('hidden');
@@ -186,17 +186,26 @@ function takeMeBack() {
   savedPostersView.classList.add('hidden');
 }
 
+function pushValues() {
+  images.push(image.src);
+  titles.push(title.innerText);
+  quotes.push(quote.innerText);
+}
+
 function showUserPoster() {
-  // event.preventDefault(event);
-  var userImage = imageInput.value;
-  var userTitle = titleInput.value;
-  var userQuote = quoteInput.value;
-  image.src = userImage;
-  title.innerText = userTitle;
-  quote.innerText = userQuote;
-  console.log(userImage, userTitle, userQuote);
-    // figure out how to import/require poster.js, so that we can start using our class!
-  currentPoster = new Poster(userImage, userTitle, userQuote);
+  event.preventDefault(event);
+  // var userImage = imageInput.value;
+  // var userTitle = titleInput.value;
+  // var userQuote = quoteInput.value;
+  // image.src = userImage;
+  // title.innerText = userTitle;
+  // quote.innerText = userQuote;
+  image.src = imageInput.value;
+  title.innerText = titleInput.value;
+  quote.innerText = quoteInput.value;
+  // console.log(userImage, userTitle, userQuote);
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  takeMeBack();
 }
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
@@ -220,11 +229,6 @@ function showUserPoster() {
 // buildCurrentPoster();
 
 
-// ITERATION 1 - Switching Views - GOAL: get through 1/3 on Thursday eve; complete Friday during afternoon work session
-// √ 1) When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
-// √ 2) When a user clicks the “View Saved Posters” button, we should see the saved posters area, and the main poster should be hidden
-// 3) When a user clicks the √ “Nevermind, take me back!” or √ “Back to Main” buttons, we should only see the main poster section
-//   √ In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
 
 // ITERATION 2 - Creating a New Poster - GOAL: complete Friday evening
 // On the new poster form view, users should be able to fill out the three input fields and then hit the save button

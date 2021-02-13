@@ -1,9 +1,11 @@
 // query selector variables go here 👇
 
+
 // display elements
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
+var posterForm = document.querySelector('.poster-form');
 
 // buttons inside form
 var buttonSavePoster = document.querySelector('.save-form');
@@ -129,15 +131,15 @@ window.addEventListener('load', buildRandomPoster);
 
 // form button listeners
 
-buttonSavePoster.addEventListener('click', action); // SEE ITERATION 2
-buttonViewPoster.addEventListener('click', action); // display the saved posters area, and the main poster should be hidden
+// buttonSavePoster.addEventListener('click', action); // SEE ITERATION 2
+// buttonViewPoster.addEventListener('click', action); // display the saved posters area, and the main poster should be hidden
 buttonRandom.addEventListener('click', buildRandomPoster); //instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
-buttonMakePoster.addEventListener('click', action); // display the form, and the main poster should be hidden
+buttonMakePoster.addEventListener('click', showForm); // display the form, and the main poster should be hidden
 
 // other button listeners
 
-buttonNevermind.addEventListener('click', action);  // show only the main poster section
-buttonBackToMain.addEventListener('click', action); // show only the main poster section
+// buttonNevermind.addEventListener('click', action);  // show only the main poster section
+// buttonBackToMain.addEventListener('click', action); // show only the main poster section
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -161,6 +163,10 @@ function buildRandomPoster() {
 function saveCurrentPoster(current) {
   savedPosters.push(current);
 }
+
+function showForm() {
+  posterForm.classList.remove('.hidden');
+};
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 

@@ -8,6 +8,7 @@ var quote = document.querySelector('.poster-quote');
 var posterForm = document.querySelector('.poster-form');
 var mainPoster = document.querySelector('.main-poster');
 var savedPostersView = document.querySelector('.saved-posters');
+var posterGrid = document.getElementByClass('saved-posters-grid');
 
 // main buttons
 var buttonSavePoster = document.querySelector('.save-poster');
@@ -22,6 +23,8 @@ var buttonShowPoster = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url')
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
+
+
 
 // we've provided you with some data to work with 👇
 
@@ -137,7 +140,10 @@ buttonSavePoster.addEventListener('click', function() {
   saveCurrentPoster();
 });
 
-buttonShowSaved.addEventListener('click', showSaved); // display the saved posters area, and the main poster should be hidden
+buttonShowSaved.addEventListener('click', function() {
+  showSaved();
+  displayGrid();
+}
 buttonRandom.addEventListener('click', buildRandomPoster); // instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
 buttonMakePoster.addEventListener('click', showForm); // display the form, and the main poster should be hidden
 
@@ -209,6 +215,12 @@ function takeMeBack() {
   posterForm.classList.add('hidden');
   mainPoster.classList.remove('hidden');
   savedPostersView.classList.add('hidden');
+}
+
+function displayGrid() {
+  for (var i = 0; i < savedPosters.length; i++) {
+    // postersGrid.innerHTML += savedPosters[i];
+  }
 }
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}

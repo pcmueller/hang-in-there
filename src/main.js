@@ -232,6 +232,19 @@ function takeMeBack() {
 // all elements stored within the `savedPosters` array will be displayed on the page {nd}
 // build a function that will display all the saved posters; might this use innerHTML? {nd}
 // there is a class `saved-posters-grid` on line 38 of the HTML that will likely come into play here {nd}
+// 1) target the saved-posters-grid and store in a variable (query selector)
+// 2) values stored in the savedPosters array should be displayed in the grid
+// 3) use innerHTML to add the values to the array
+// 4) use a for loop (?) to iterate through savedPosters and build each mini poster
+// 5) each iteration will += the innerHTML to add it to the display section
+// 6) each iteration will reassign the values contained within the HTML structure to savedPosters[i].image, savedPosters[i].title, savedPosters[i].quote
+// 7) use the structure in the HTML on lines 12 - 16 as a guide:
+// <article class="poster">
+  // <img class="poster-img" src="" alt="nothin' to see here">
+  // <h1 class="poster-title">Title</h1>
+  // <h3 class="poster-quote">Quote</h3>
+// </article>
+
 
 // ITERATION 4 - Deleting Saved Posters - STRETCH GOAL: if we complete iteration 3 goals early (on Saturday) we will divide and each attempt iteration 4 (with communication)
 // From the saved posters view, if a user double clicks a saved poster, it will be deleted

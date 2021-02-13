@@ -140,7 +140,7 @@ buttonMakePoster.addEventListener('click', showForm); // display the form, and t
 
 // other button listeners
 
-// buttonNevermind.addEventListener('click', action);  // show only the main poster section
+buttonNevermind.addEventListener('click', takeMeBack);  // show only the main poster section
 // buttonBackToMain.addEventListener('click', action); // show only the main poster section
 
 // functions and event handlers go here 👇
@@ -171,10 +171,16 @@ function showForm() {
   mainPoster.classList.add('hidden');
 };
 
+function takeMeBack() {
+  posterForm.classList.add('hidden');
+  mainPoster.classList.remove('hidden');
+}
+
 function showSaved() {
   savedPostersView.classList.remove('hidden');
   mainPoster.classList.add('hidden');
 }
+
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 
@@ -197,8 +203,8 @@ function showSaved() {
 
 // ITERATION 1 - Switching Views - GOAL: get through 1/3 on Thursday eve; complete Friday during afternoon work session
 // √ 1) When a user clicks the “Make Your Own Poster” button, we should see the form, and the main poster should be hidden
-// 2) When a user clicks the “View Saved Posters” button, we should see the saved posters area, and the main poster should be hidden
-// 3) When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
+// √ 2) When a user clicks the “View Saved Posters” button, we should see the saved posters area, and the main poster should be hidden
+// 3) When a user clicks the √ “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
 //    In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
 
 // ITERATION 2 - Creating a New Poster - GOAL: complete Friday evening

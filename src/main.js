@@ -8,7 +8,7 @@ var quote = document.querySelector('.poster-quote');
 var posterForm = document.querySelector('.poster-form');
 var mainPoster = document.querySelector('.main-poster');
 var savedPostersView = document.querySelector('.saved-posters');
-var posterGrid = document.getElementsByClassName('saved-posters-grid');
+var posterGrid = document.querySelector('.saved-posters-grid');
 
 // main buttons
 var buttonSavePoster = document.querySelector('.save-poster');
@@ -219,18 +219,20 @@ function takeMeBack() {
 }
 
 function displayGrid() {
+  // posterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
-    console.log(savedPosters[i].imageURL);
-    posterGrid.innerHTML += `
-      <article class="saved-posters-grid">
-        <img class="poster-img" src="${savedPosters[i].imageURL}">
-        <h1 class="poster-title">${savedPosters[i].title}</h1>
-        <h3 class="poster-quote">${savedPosters[i].quote}</h3>
-      </article>
-    `;
-    // console.log('posterGrid:', posterGrid);
+    console.log('savedPoster:', savedPosters[i]);
+    console.log('posterGrid:', posterGrid);
+    posterGrid.innerHTML +=
+      `<article class="mini-poster">
+      <img class="poster-img" src="${savedPosters[i].imageURL}">
+      <h1 class="poster-title">${savedPosters[i].title}</h1>
+      <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+      </article>`;
   }
 }
+
+
 
 // write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
 

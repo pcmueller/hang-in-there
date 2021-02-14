@@ -2,7 +2,8 @@
 // display elements
 var image = document.querySelector('.poster-img');
 var mainPoster = document.querySelector('.main-poster');
-// var miniPoster = document.querySelector('.mini-poster'); // this is targeting the individual mini posters, and when inspecting with the dev tools, the poster appears in the console with the naming "article#783012764longidnumber738492.mini-poster"
+// var miniPoster = document.getElementsByClassName('mini-poster');
+// this is targeting the individual mini posters, and when inspecting with the dev tools, the poster appears in the console with the naming "article#783012764longidnumber738492.mini-poster"
 // can use `savedPosters[0].id` to target the id property within the objects of the savedPosters array
 // use a `for` loop to examine the objects within savedPosters to find the id that contains the `savedPosters[i].id` value
 // the object containing that value can now be removed from the savedPosters array
@@ -178,15 +179,15 @@ function displayGrid() {
 }
 
 function identifyMiniPoster() {
-  var clickedPoster = event.target;
+  var clickedPoster = event.target.closest('.mini-poster');
   console.log(clickedPoster);
-  for (var i = 0; i < savedPosters.length; i++) {
-    if (savedPosters[i].id === clickedPoster.id) {
-        removePoster(clickedPoster);
-        console.log("Clicked ID: ", clickedPoster.id);
-        console.log("SavedPoster: ", savedPosters[i]);
-    }
-}
+  // for (var i = 0; i < savedPosters.length; i++) {
+  //   if (savedPosters[i].id === clickedPoster.id) {
+  //       removePoster(clickedPoster);
+  //       console.log("Clicked ID: ", clickedPoster.id);
+  //       console.log("SavedPoster: ", savedPosters[i]);
+  //   }
+// }
 
 
 function removePoster(element) {

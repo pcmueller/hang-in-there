@@ -224,7 +224,7 @@ function displayGrid() {
     console.log('savedPoster:', savedPosters[i]);
     console.log('posterGrid:', posterGrid);
     posterGrid.innerHTML +=
-      `<article class="saved-posters-grid">
+      `<article class="poster">
       <img class="poster-img" src="${savedPosters[i].imageURL}">
       <h1 class="poster-title">${savedPosters[i].title}</h1>
       <h3 class="poster-quote">${savedPosters[i].quote}</h3>

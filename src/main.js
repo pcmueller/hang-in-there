@@ -148,11 +148,11 @@ buttonShowSaved.addEventListener('click', function() {
 buttonRandom.addEventListener('click', buildRandomPoster);
 buttonMakePoster.addEventListener('click', showForm);
 
-// other button listeners
-
 buttonNevermind.addEventListener('click', takeMeBack);
 buttonBackToMain.addEventListener('click', takeMeBack);
 buttonShowPoster.addEventListener('click', showUserPoster);
+
+posterGrid.addEventListener('dblclick', removePoster);
 
 // functions and event handlers go here 👇
 
@@ -177,6 +177,22 @@ function showUserPoster() {
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
   takeMeBack();
   pushValues();
+}
+
+function displayGrid() {
+  posterGrid.innerHTML = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    posterGrid.innerHTML +=
+      `<article class="mini-poster">
+      <img class="poster-img" src="${savedPosters[i].imageURL}">
+      <h2 class="poster-title">${savedPosters[i].title}</h2>
+      <h4 class="poster-quote">${savedPosters[i].quote}</h4>
+      </article>`;
+  }
+}
+
+function removePoster() {
+    // use loop to remove <article> from the posterGrid and class instance from savedPosters array
 }
 
 // helper functions
@@ -212,19 +228,29 @@ function takeMeBack() {
   savedPostersView.classList.add('hidden');
 }
 
-function displayGrid() {
-  posterGrid.innerHTML = "";
-  for (var i = 0; i < savedPosters.length; i++) {
-    console.log('savedPoster:', savedPosters[i]);
-    console.log('posterGrid:', posterGrid);
-    posterGrid.innerHTML +=
-      `<article class="mini-poster">
-      <img class="poster-img" src="${savedPosters[i].imageURL}">
-      <h2 class="poster-title">${savedPosters[i].title}</h2>
-      <h4 class="poster-quote">${savedPosters[i].quote}</h4>
-      </article>`;
-  }
-}
-
 // ITERATION 4 - Deleting Saved Posters - STRETCH GOAL: if we complete iteration 3 goals early (on Saturday) we will divide and each attempt iteration 4 (with communication)
 // From the saved posters view, if a user double clicks a saved poster, it will be deleted
+// *Hint: How will you update the data model to achieve this?*
+// PSEUDO:
+  // we need to identify the block of HTML in posterGrid that the user wants to delete.
+  // maybe refactor displayGrid so that when a savedPosters instance is added, we give it a unique ID?   i.e. "id = ${savedPosters[i]}" or something?
+  // √ we can add a 'dblclick' event to the posterGrid variable to invoke a function that will handle the removal
+  // function should remove both the <article> from the posterGrid and the class instance from the savedPosters array.
+  // probably use a for loop to iterate through each, looking for entries with that id, then use .remove or splice()
+  // run showSaved() at the end to refresh page
+
+
+// CLEAN-UP / REFACTORING:
+// refactor pushValues to include just one dynamic conditional, with passed in parameters? pushValues(array, variable.property)
+// (possible that dynamism wouldn't really help and # of lines of code would be roughly the same, though)
+
+
+// Optional Extensions - Gettin’ fancy
+// Here’s a list of possible extensions to implement - but ONLY IF your team has completed all the previous iterations AND have cleaned up your code to make it DRYer and more readable.
+//
+// You are welcome to add your own extensions. Be sure they are thoughtful in terms of UX/UI, and that they do not break any prior functionality.
+//
+// Implement data validation and error handling into the form (disable button, provide error messages if data entered is not correct, etc)
+// In the main poster view, allow users to click each piece of the poster (image, title, quote) to update just that piece with another random item from the appropriate array
+// When a user single clicks a saved poster, create a modal to view it larger
+// Allow users to drag and drop saved posters into whatever order they want them to appear

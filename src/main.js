@@ -1,21 +1,21 @@
 // query selector variables go here 👇
-
-
 // display elements
 var image = document.querySelector('.poster-img');
-var title = document.querySelector('.poster-title');
-var quote = document.querySelector('.poster-quote');
-var posterForm = document.querySelector('.poster-form');
 var mainPoster = document.querySelector('.main-poster');
-var savedPostersView = document.querySelector('.saved-posters');
+var miniPoster = document.querySelector('.mini-poster'); // this is targeting the individual mini posters, and when inspecting with the dev tools, the poster appears in the console with the naming "article#783012764longidnumber738492.mini-poster"
+// can use `savedPosters[0].id` to target the id property within the objects of the savedPosters array
+// use a `for` loop to examine the objects within savedPosters to find the id that contains the `savedPosters[i].id` value
+// the object containing that value can now be removed from the savedPosters array
+var posterForm = document.querySelector('.poster-form');
 var posterGrid = document.querySelector('.saved-posters-grid');
-
-// main buttons
+var quote = document.querySelector('.poster-quote');
+var savedPostersView = document.querySelector('.saved-posters');
+var title = document.querySelector('.poster-title');
+// main page buttons
+var buttonMakePoster = document.querySelector('.show-form');
 var buttonSavePoster = document.querySelector('.save-poster');
 var buttonShowSaved = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
-var buttonMakePoster = document.querySelector('.show-form');
-
 // form buttons and inputs
 var buttonNevermind = document.querySelector('.show-main');
 var buttonBackToMain = document.querySelector('.back-to-main');
@@ -23,12 +23,7 @@ var buttonShowPoster = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url')
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
-
-
-
-// we've provided you with some data to work with 👇
-
-// static arrays
+// mutable global variables
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -126,36 +121,27 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-
-// dynamic functions
 var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-
 window.addEventListener('load', buildRandomPoster);
-
+buttonBackToMain.addEventListener('click', takeMeBack);
+buttonMakePoster.addEventListener('click', showForm);
+buttonNevermind.addEventListener('click', takeMeBack);
+buttonRandom.addEventListener('click', buildRandomPoster);
 buttonSavePoster.addEventListener('click', function() {
   pushValues();
   saveCurrentPoster();
 });
-
+buttonShowPoster.addEventListener('click', showUserPoster);
 buttonShowSaved.addEventListener('click', function() {
   showSaved();
   displayGrid();
 });
-
-buttonRandom.addEventListener('click', buildRandomPoster);
-buttonMakePoster.addEventListener('click', showForm);
-
-buttonNevermind.addEventListener('click', takeMeBack);
-buttonBackToMain.addEventListener('click', takeMeBack);
-buttonShowPoster.addEventListener('click', showUserPoster);
-
 posterGrid.addEventListener('dblclick', removePoster);
 
-// functions and event handlers go here 👇
-
+// functions and event handlers
 function buildRandomPoster() {
   image.src = images[getRandomIndex(images)];
   title.innerText = titles[getRandomIndex(titles)];

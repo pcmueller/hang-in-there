@@ -145,14 +145,14 @@ buttonShowSaved.addEventListener('click', function() {
   displayGrid();
 });
 
-buttonRandom.addEventListener('click', buildRandomPoster); // instead of having this click call the buildCurrentPoster function, it could call a helper function that would buildCurrentPoster, AND instantiate an object AND do whatever else we need it to do in the future
-buttonMakePoster.addEventListener('click', showForm); // display the form, and the main poster should be hidden
+buttonRandom.addEventListener('click', buildRandomPoster);
+buttonMakePoster.addEventListener('click', showForm);
 
 // other button listeners
 
-buttonNevermind.addEventListener('click', takeMeBack);  // show only the main poster section
-buttonBackToMain.addEventListener('click', takeMeBack); // show only the main poster section
-buttonShowPoster.addEventListener('click', showUserPoster); // display user poster back on main
+buttonNevermind.addEventListener('click', takeMeBack);
+buttonBackToMain.addEventListener('click', takeMeBack);
+buttonShowPoster.addEventListener('click', showUserPoster);
 
 // functions and event handlers go here 👇
 
@@ -161,8 +161,7 @@ function buildRandomPoster() {
   title.innerText = titles[getRandomIndex(titles)];
   quote.innerText = quotes[getRandomIndex(quotes)];
   currentPoster = new Poster(image.src, title.innerText, quote.innerText);
-};
-
+}
 
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)){
@@ -181,16 +180,11 @@ function showUserPoster() {
 }
 
 // helper functions
-
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
 function pushValues() {
-  // images.push(image.src);
-  // titles.push(title.innerText);
-  // quotes.push(quote.innerText);
-
   if (!images.includes(image.src)) {
     images.push(image.src);
   }
@@ -205,7 +199,7 @@ function pushValues() {
 function showForm() {
   posterForm.classList.remove('hidden');
   mainPoster.classList.add('hidden');
-};
+}
 
 function showSaved() {
   savedPostersView.classList.remove('hidden');
@@ -219,7 +213,7 @@ function takeMeBack() {
 }
 
 function displayGrid() {
-  // posterGrid.innerHTML = "";
+  posterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     console.log('savedPoster:', savedPosters[i]);
     console.log('posterGrid:', posterGrid);
@@ -231,43 +225,6 @@ function displayGrid() {
       </article>`;
   }
 }
-
-
-
-// write a conditional function to pair with buildCurrentPoster that will compare what is currently displayed vs what is stored in the currentPoster object - if the next random value matches any of the current values, find a different value { if a === b we need a new value}
-
-// something like this for image/title/quote? :
-// use a while loop so that 'while' the randomly-generated
-
-// if (randomImage === image.src) {
-//   continue (run randomizer again);
-// } else {
-//   image.src = randomImage;
-//   break;
-// }
-
-
-// ITERATION 3 - Saving & Viewing Posters - GOAL: complete Saturday evening; refactor Sunday and work on the README; review DTR
-// √ When a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
-// √ If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
-// √ When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-// All the posters in the `savedPosters` array should be displayed in the saved posters grid section
-// all elements stored within the `savedPosters` array will be displayed on the page {nd}
-// build a function that will display all the saved posters; might this use innerHTML? {nd}
-// there is a class `saved-posters-grid` on line 38 of the HTML that will likely come into play here {nd}
-// 1) target the saved-posters-grid and store in a variable (query selector)
-// 2) values stored in the savedPosters array should be displayed in the grid
-// 3) use innerHTML to add the values to the array
-// 4) use a for loop (?) to iterate through savedPosters and build each mini poster
-// 5) each iteration will += the innerHTML to add it to the display section
-// 6) each iteration will reassign the values contained within the HTML structure to savedPosters[i].image, savedPosters[i].title, savedPosters[i].quote
-// 7) use the structure in the HTML on lines 12 - 16 as a guide:
-// <article class="poster">
-  // <img class="poster-img" src="" alt="nothin' to see here">
-  // <h1 class="poster-title">Title</h1>
-  // <h3 class="poster-quote">Quote</h3>
-// </article>
-
 
 // ITERATION 4 - Deleting Saved Posters - STRETCH GOAL: if we complete iteration 3 goals early (on Saturday) we will divide and each attempt iteration 4 (with communication)
 // From the saved posters view, if a user double clicks a saved poster, it will be deleted

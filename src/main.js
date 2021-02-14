@@ -194,12 +194,12 @@ function displayGrid() {
 function removePoster() {
     // event.target not working - need to figure out the syntax/notation here
     var clickedPoster = event.target;
-    console.log(clickedPoster);
-    // for (var i = 0; i < savedPosters.length; i++) {
-    //   if (savedPosters[i].id === clickedPoster.id)
-    //     savedPosters.splice(i, 1);
-    //     posterGrid.HTMLCollection.remove(clickedPoster);
-    // }
+    // console.log(clickedPoster);
+    for (var i = 0; i < savedPosters.length; i++) {
+      if (savedPosters[i].id === clickedPoster.id)
+        savedPosters.splice(i, 1);
+        // posterGrid.HTMLCollection.remove(clickedPoster);
+    }
 }
 
 // helper functions

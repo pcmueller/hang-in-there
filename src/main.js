@@ -183,7 +183,7 @@ function displayGrid() {
   posterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     posterGrid.innerHTML +=
-      `<article class="mini-poster">
+      `<article class="mini-poster" id="${savedPosters[i].id}">
       <img class="poster-img" src="${savedPosters[i].imageURL}">
       <h2 class="poster-title">${savedPosters[i].title}</h2>
       <h4 class="poster-quote">${savedPosters[i].quote}</h4>
@@ -192,7 +192,14 @@ function displayGrid() {
 }
 
 function removePoster() {
-    // use loop to remove <article> from the posterGrid and class instance from savedPosters array
+    // event.target not working - need to figure out the syntax/notation here
+    var clickedPoster = event.target;
+    // console.log(clickedPoster);
+    for (var i = 0; i < savedPosters.length; i++) {
+      if (savedPosters[i].id === clickedPoster.id)
+        savedPosters.splice(i, 1);
+        // posterGrid.HTMLCollection.remove(clickedPoster);
+    }
 }
 
 // helper functions
@@ -235,7 +242,8 @@ function takeMeBack() {
   // we need to identify the block of HTML in posterGrid that the user wants to delete.
   // maybe refactor displayGrid so that when a savedPosters instance is added, we give it a unique ID?   i.e. "id = ${savedPosters[i]}" or something?
   // √ we can add a 'dblclick' event to the posterGrid variable to invoke a function that will handle the removal
-  // function should remove both the <article> from the posterGrid and the class instance from the savedPosters array.
+  // function needs to find id of the element double-clicked    - 'event.target'?  pcm
+  // should remove both the <article> from the posterGrid and the class instance from the savedPosters array.
   // probably use a for loop to iterate through each, looking for entries with that id, then use .remove or splice()
   // run showSaved() at the end to refresh page
 

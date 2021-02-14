@@ -226,8 +226,8 @@ function displayGrid() {
     posterGrid.innerHTML +=
       `<article class="mini-poster">
       <img class="poster-img" src="${savedPosters[i].imageURL}">
-      <h1 class="poster-title">${savedPosters[i].title}</h1>
-      <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+      <h2 class="poster-title">${savedPosters[i].title}</h2>
+      <h4 class="poster-quote">${savedPosters[i].quote}</h4>
       </article>`;
   }
 }

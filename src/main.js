@@ -2,7 +2,8 @@
 // display elements
 var image = document.querySelector('.poster-img');
 var mainPoster = document.querySelector('.main-poster');
-var miniPoster = document.querySelector('.mini-poster'); // this is targeting the individual mini posters, and when inspecting with the dev tools, the poster appears in the console with the naming "article#783012764longidnumber738492.mini-poster"
+// var miniPoster = document.getElementsByClassName('mini-poster');
+// this is targeting the individual mini posters, and when inspecting with the dev tools, the poster appears in the console with the naming "article#783012764longidnumber738492.mini-poster"
 // can use `savedPosters[0].id` to target the id property within the objects of the savedPosters array
 // use a `for` loop to examine the objects within savedPosters to find the id that contains the `savedPosters[i].id` value
 // the object containing that value can now be removed from the savedPosters array
@@ -139,7 +140,7 @@ buttonShowSaved.addEventListener('click', function() {
   showSaved();
   displayGrid();
 });
-posterGrid.addEventListener('dblclick', removePoster);
+posterGrid.addEventListener('dblclick', identifyMiniPoster);
 
 // functions and event handlers
 function buildRandomPoster() {
@@ -177,14 +178,27 @@ function displayGrid() {
   }
 }
 
-function removePoster() {
+function identifyMiniPoster() {
+  var clickedPoster = event.target.closest('.mini-poster');
+  console.log(clickedPoster);
+  // for (var i = 0; i < savedPosters.length; i++) {
+  //   if (savedPosters[i].id === clickedPoster.id) {
+  //       removePoster(clickedPoster);
+  //       console.log("Clicked ID: ", clickedPoster.id);
+  //       console.log("SavedPoster: ", savedPosters[i]);
+  //   }
+// }
+
+
+function removePoster(element) {
     // event.target not working - need to figure out the syntax/notation here
-    var clickedPoster = event.target;
-    // console.log(clickedPoster);
-    for (var i = 0; i < savedPosters.length; i++) {
-      if (savedPosters[i].id === clickedPoster.id)
-        savedPosters.splice(i, 1);
-        // posterGrid.HTMLCollection.remove(clickedPoster);
+        savedPosters.splice(element, 1);
+        posterGrid.innerHTML -=
+        `<article class="mini-poster" id="${element.id}">
+        <img class="poster-img" src="${element.imageURL}">
+        <h2 class="poster-title">${element.title}</h2>
+        <h4 class="poster-quote">${element.quote}</h4>
+        </article>`;
     }
 }
 

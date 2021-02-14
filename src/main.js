@@ -183,7 +183,7 @@ function displayGrid() {
   posterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     posterGrid.innerHTML +=
-      `<article class="mini-poster">
+      `<article class="mini-poster" id="${savedPosters[i]}">
       <img class="poster-img" src="${savedPosters[i].imageURL}">
       <h2 class="poster-title">${savedPosters[i].title}</h2>
       <h4 class="poster-quote">${savedPosters[i].quote}</h4>

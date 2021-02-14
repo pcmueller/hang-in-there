@@ -2,11 +2,7 @@
 // display elements
 var image = document.querySelector('.poster-img');
 var mainPoster = document.querySelector('.main-poster');
-// var miniPoster = document.getElementsByClassName('mini-poster');
-// this is targeting the individual mini posters, and when inspecting with the dev tools, the poster appears in the console with the naming "article#783012764longidnumber738492.mini-poster"
-// can use `savedPosters[0].id` to target the id property within the objects of the savedPosters array
-// use a `for` loop to examine the objects within savedPosters to find the id that contains the `savedPosters[i].id` value
-// the object containing that value can now be removed from the savedPosters array
+var miniPoster = document.getElementsByClassName('mini-poster');
 var posterForm = document.querySelector('.poster-form');
 var posterGrid = document.querySelector('.saved-posters-grid');
 var quote = document.querySelector('.poster-quote');
@@ -180,26 +176,17 @@ function displayGrid() {
 
 function identifyMiniPoster() {
   var clickedPoster = event.target.closest('.mini-poster');
-  console.log(clickedPoster);
-  // for (var i = 0; i < savedPosters.length; i++) {
-  //   if (savedPosters[i].id === clickedPoster.id) {
-  //       removePoster(clickedPoster);
-  //       console.log("Clicked ID: ", clickedPoster.id);
-  //       console.log("SavedPoster: ", savedPosters[i]);
-  //   }
-// }
-
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id === parseInt(clickedPoster.id)) {
+        removePoster(savedPosters[i]);
+    }
+  }
+}
 
 function removePoster(element) {
-    // event.target not working - need to figure out the syntax/notation here
-        savedPosters.splice(element, 1);
-        posterGrid.innerHTML -=
-        `<article class="mini-poster" id="${element.id}">
-        <img class="poster-img" src="${element.imageURL}">
-        <h2 class="poster-title">${element.title}</h2>
-        <h4 class="poster-quote">${element.quote}</h4>
-        </article>`;
-    }
+    var index = savedPosters.indexOf(element);
+    savedPosters.splice(index, 1);
+    displayGrid();
 }
 
 // helper functions
@@ -234,24 +221,6 @@ function takeMeBack() {
   mainPoster.classList.remove('hidden');
   savedPostersView.classList.add('hidden');
 }
-
-// ITERATION 4 - Deleting Saved Posters - STRETCH GOAL: if we complete iteration 3 goals early (on Saturday) we will divide and each attempt iteration 4 (with communication)
-// From the saved posters view, if a user double clicks a saved poster, it will be deleted
-// *Hint: How will you update the data model to achieve this?*
-// PSEUDO:
-  // we need to identify the block of HTML in posterGrid that the user wants to delete.
-  // maybe refactor displayGrid so that when a savedPosters instance is added, we give it a unique ID?   i.e. "id = ${savedPosters[i]}" or something?
-  // √ we can add a 'dblclick' event to the posterGrid variable to invoke a function that will handle the removal
-  // function needs to find id of the element double-clicked    - 'event.target'?  pcm
-  // should remove both the <article> from the posterGrid and the class instance from the savedPosters array.
-  // probably use a for loop to iterate through each, looking for entries with that id, then use .remove or splice()
-  // run showSaved() at the end to refresh page
-
-
-// CLEAN-UP / REFACTORING:
-// refactor pushValues to include just one dynamic conditional, with passed in parameters? pushValues(array, variable.property)
-// (possible that dynamism wouldn't really help and # of lines of code would be roughly the same, though)
-
 
 // Optional Extensions - Gettin’ fancy
 // Here’s a list of possible extensions to implement - but ONLY IF your team has completed all the previous iterations AND have cleaned up your code to make it DRYer and more readable.

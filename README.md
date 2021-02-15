@@ -3,7 +3,7 @@
 
 ![giphy-5](https://user-images.githubusercontent.com/63027000/107981580-936f3280-6f7f-11eb-88af-4e9f1fd76737.gif)
 
-[Make your own poster!](https://pcmueller.github.io/hang-in-there-boilerplate/)
+[✨Make your own poster!✨](https://pcmueller.github.io/hang-in-there-boilerplate/)
 
 #### Overview & [Project](https://frontend.turing.io/projects/module-1/hang-in-there.html) Goals
 - Sometimes you need a pick me up. Remember those motivational posters that were all over the place in classrooms and online? We’re going to make our own!
@@ -84,13 +84,13 @@
 
 #### Credits
 ##### Co-Contributors
-[Nichele D](https://github.com/nichelicorn)
-[Peter Muellerleile](https://github.com/pcmueller)
+- [🌵Nichele D](https://github.com/nichelicorn)
+- [🦥Peter Muellerleile](https://github.com/pcmueller)
 ##### Mentors
-[Elizabeth Hahn](https://github.com/elizhahn)
-[Rachael Thomas](https://github.com/rachael-t)
+- [🌴Elizabeth Hahn](https://github.com/elizhahn)
+- [🐻Rachael Thomas](https://github.com/rachael-t)
 ##### Project Manager
-[Hannah Hudson](https://github.com/hannahhch)
+- [👩🏻‍🏫Hannah Hudson](https://github.com/hannahhch)
 
 **************************************************************************
 

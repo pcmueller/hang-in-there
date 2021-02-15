@@ -136,7 +136,7 @@ buttonShowSaved.addEventListener('click', function() {
   showSaved();
   displayGrid();
 });
-posterGrid.addEventListener('dblclick', identifyMiniPoster);
+posterGrid.addEventListener('dblclick', removePoster);
 
 // functions and event handlers
 function buildRandomPoster() {
@@ -174,19 +174,14 @@ function displayGrid() {
   }
 }
 
-function identifyMiniPoster() {
+function removePoster() {
   var clickedPoster = event.target.closest('.mini-poster');
   for (var i = 0; i < savedPosters.length; i++) {
     if (savedPosters[i].id === parseInt(clickedPoster.id)) {
-        removePoster(savedPosters[i]);
+      savedPosters.splice(i, 1);
+      displayGrid();
     }
   }
-}
-
-function removePoster(element) {
-    var index = savedPosters.indexOf(element);
-    savedPosters.splice(index, 1);
-    displayGrid();
 }
 
 // helper functions
@@ -221,13 +216,3 @@ function takeMeBack() {
   mainPoster.classList.remove('hidden');
   savedPostersView.classList.add('hidden');
 }
-
-// Optional Extensions - Gettin’ fancy
-// Here’s a list of possible extensions to implement - but ONLY IF your team has completed all the previous iterations AND have cleaned up your code to make it DRYer and more readable.
-//
-// You are welcome to add your own extensions. Be sure they are thoughtful in terms of UX/UI, and that they do not break any prior functionality.
-//
-// Implement data validation and error handling into the form (disable button, provide error messages if data entered is not correct, etc)
-// In the main poster view, allow users to click each piece of the poster (image, title, quote) to update just that piece with another random item from the appropriate array
-// When a user single clicks a saved poster, create a modal to view it larger
-// Allow users to drag and drop saved posters into whatever order they want them to appear

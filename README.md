@@ -1,7 +1,7 @@
 # Hang in there!
 #### a fun app to generate random motivational posters, and make your own!
 
-![giphy-2](https://user-images.githubusercontent.com/63027000/107980591-cb757600-6f7d-11eb-93ca-88ba4f8d51cd.gif)
+![giphy-5](https://user-images.githubusercontent.com/63027000/107981580-936f3280-6f7f-11eb-88af-4e9f1fd76737.gif)
 
 [Make your own poster!](https://pcmueller.github.io/hang-in-there-boilerplate/)
 

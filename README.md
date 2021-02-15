@@ -90,7 +90,7 @@
 - [🌴 Elizabeth Hahn](https://github.com/elizhahn)
 - [🐻 Rachael Thomas](https://github.com/rachael-t)
 ##### Project Manager
-- [👩🏻‍ 🏫Hannah Hudson](https://github.com/hannahhch)
+- [👩🏻‍🏫 Hannah Hudson](https://github.com/hannahhch)
 
 **************************************************************************
 

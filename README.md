@@ -26,8 +26,9 @@
 - Each page load will automatically generate a random motivational poster. From here, the user has options!
 - The user may continue to generate random posters by clicking the `Show Another Random Poster Button`.
 - To create their own poster, a user will click on `Make Your Own Poster`. This will pull up a form that accepts inputs for an image URL, a title, and a quote. Clicking `Show my poster` will return the user to the home page and display their new poster! There is also an option to return to the home page without creating a poster, by clicking `Nevermind, take me back!`
+![giphy-3](https://user-images.githubusercontent.com/63027000/107980953-6c643100-6f7e-11eb-8719-5856a5afc3f9.gif)
 - Posters can also be stored for later viewing by clicking `Save This Poster`. This switches to a grid view displaying mini versions of all saved posters.
-![saved posters view + delete gif](link in the parens)
+![giphy-4](https://user-images.githubusercontent.com/63027000/107981255-f01e1d80-6f7e-11eb-80e0-9ddcda47d6f1.gif)
 - To delete a poster, the user can double click the image.
 - This applications runs directly in the web browser!
 

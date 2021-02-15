@@ -13,7 +13,7 @@
 - Begin to understand the connection between HTML, CSS and JavaScript
 
 #### Learning Goals
-- Learning goals to develop a better understanding of learned concepts
+- Develop a better understanding of learned concepts
 - Work on teaching strategies to grow as a developer
 - Get more reps and add to toolbox and tying concepts together
 - Work on teamwork and remote collaboration skills
@@ -21,11 +21,13 @@
 #### Why was this project created?
 - This project was created to teach the fundamentals of working on a team and implementing vanilla JavaScript to create a basic web application
 
-#### How does this work? (insert screen shots - will do tomorrow morning)
+#### How does this work?
+![homepage screenshot](link in the parens)
 - Each page load will automatically generate a random motivational poster. From here, the user has options!
 - The user may continue to generate random posters by clicking the `Show Another Random Poster Button`.
 - To create their own poster, a user will click on `Make Your Own Poster`. This will pull up a form that accepts inputs for an image URL, a title, and a quote. Clicking `Show my poster` will return the user to the home page and display their new poster! There is also an option to return to the home page without creating a poster, by clicking `Nevermind, take me back!`
 - Posters can also be stored for later viewing by clicking `Save This Poster`. This switches to a grid view displaying mini versions of all saved posters.
+![saved posters view + delete gif](link in the parens)
 - To delete a poster, the user can double click the image.
 - This applications runs directly in the web browser!
 
@@ -38,20 +40,33 @@
 - JavaScript
 - HTML
 - CSS
-- Atom + Teletype
-- Zoom
 
 #### Project Reflection
-General project reflection, an overview of how it went
+##### Nichele
+- I had a great experience during this project. Peter and I spent a good deal of time planning and discussing the problems, challenges we might face, and how to address problems when encountered.
+##### Peter
 
 ##### Wins
-Overall wins - what went really well?
+##### Nichele
+- I felt like our communication styles worked well together, and we were able to address coding challenges through discussion and solo pseudocoding.
+- Planning! We spent a lot of time in discussion deciding how to address a problem before writing any code. This seemed to give us a clear direction without leaving us muddled in issues we hadn't accounted for.
+- Our git workflow seemed to come together pretty quickly and I didn't have any issues with merges or pulls.
+- We were able to reach out to mentors when we needed assistance, and were able to come up with a solution to our problem with some gentle nudging.
+##### Peter
 
 ##### Challenges
-Overall challenges - what could have gone better?
+##### Nichele
+- I wish I had taken more notes! On the next project, I think I'll create a separate file within the project to store reflections and questions that come up during the project.
+- We didn't really utilize our mentors for code reviews. Though we did discuss issues we were having, we didn't actually add them to any of the PR code reviews. Next time I would like to discuss a code review schedule with my mentors prior to beginning the project.
+##### Peter
 
 ##### Overall Impressions
-How did it go?
+##### Nichele
+- Overall this project went well for me! I was able to gain more experience working with another developer, and continue to look at what my interactions are like in those situations.
+- I feel good about my progress in understanding the JavaScript logic and why certain solutions might be better than others.
+- I was able to understand the DOM and how it interacted with our code, and how to add and remove elements from the page after the initial DOM tree was created.
+- I learned a lot about what a good design and planning phase could mean for the future of a project and my own sanity during development! 
+##### Peter
 
 #### Future Features
 - Implement data validation and error handling into the form (disable button, provide error messages if data entered is not correct, etc)
@@ -60,8 +75,14 @@ How did it go?
 - Allow users to drag and drop saved posters into whatever order they want them to appear
 
 #### Credits
+##### Co-Contributors
 [Nichele D](https://github.com/nichelicorn)
 [Peter Muellerleile](https://github.com/pcmueller)
+##### Mentors
+[Elizabeth Hahn](https://github.com/elizhahn)
+[Rachael Thomas](https://github.com/rachael-t)
+##### Project Manager
+[Hannah Hudson](https://github.com/hannahhch)
 
 **************************************************************************
 

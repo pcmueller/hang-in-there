@@ -1,9 +1,10 @@
 // query selector variables go here 👇
 
+import Poster from './poster.js';
+
 // display elements
 let image = document.querySelector('.poster-img');
 let mainPoster = document.querySelector('.main-poster');
-let miniPoster = document.getElementsByClassName('mini-poster');
 let posterForm = document.querySelector('.poster-form');
 let posterGrid = document.querySelector('.saved-posters-grid');
 let quote = document.querySelector('.poster-quote');

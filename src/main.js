@@ -1,4 +1,5 @@
 // query selector variables go here 👇
+
 // display elements
 var image = document.querySelector('.poster-img');
 var mainPoster = document.querySelector('.main-poster');
@@ -8,11 +9,13 @@ var posterGrid = document.querySelector('.saved-posters-grid');
 var quote = document.querySelector('.poster-quote');
 var savedPostersView = document.querySelector('.saved-posters');
 var title = document.querySelector('.poster-title');
+
 // main page buttons
 var buttonMakePoster = document.querySelector('.show-form');
 var buttonSavePoster = document.querySelector('.save-poster');
 var buttonShowSaved = document.querySelector('.show-saved');
 var buttonRandom = document.querySelector('.show-random');
+
 // form buttons and inputs
 var buttonNevermind = document.querySelector('.show-main');
 var buttonBackToMain = document.querySelector('.back-to-main');
@@ -20,6 +23,7 @@ var buttonShowPoster = document.querySelector('.make-poster');
 var imageInput = document.getElementById('poster-image-url')
 var titleInput = document.getElementById('poster-title');
 var quoteInput = document.getElementById('poster-quote');
+
 // mutable global variables
 var images = [
   "./assets/bees.jpg",
@@ -127,28 +131,44 @@ buttonBackToMain.addEventListener('click', takeMeBack);
 buttonMakePoster.addEventListener('click', showForm);
 buttonNevermind.addEventListener('click', takeMeBack);
 buttonRandom.addEventListener('click', buildRandomPoster);
-buttonSavePoster.addEventListener('click', function() {
-  pushValues();
-  saveCurrentPoster();
-});
+buttonSavePoster.addEventListener('click', saveCurrentPoster);
 buttonShowPoster.addEventListener('click', showUserPoster);
-buttonShowSaved.addEventListener('click', function() {
-  showSaved();
-  displayGrid();
+buttonShowSaved.addEventListener('click', displayGrid);
+posterGrid.addEventListener('dblclick', function(event) {
+  removePoster(event);
 });
-posterGrid.addEventListener('dblclick', removePoster);
 
 // functions and event handlers
-function buildRandomPoster() {
-  image.src = images[getRandomIndex(images)];
-  title.innerText = titles[getRandomIndex(titles)];
-  quote.innerText = quotes[getRandomIndex(quotes)];
-  currentPoster = new Poster(image.src, title.innerText, quote.innerText);
+
+function generateRandomPoster() {
+  let newImage = images[getRandomIndex(images)];
+  let newTitle = titles[getRandomIndex(titles)];
+  let newQuote = quotes[getRandomIndex(quotes)];
+  currentPoster = new Poster(newImage, newTitle, newQuote);
+}
+
+function displayRandomPoster() {
+  image.src = currentPoster.imageURL;
+  title.innerText = currentPoster.title;
+  quote.innerText = currentPoster.quote;
 }
 
 function saveCurrentPoster() {
+  pushValues();
   if (!savedPosters.includes(currentPoster)){
     savedPosters.push(currentPoster);
+  }
+}
+
+function pushValues() {
+  if (!images.includes(image.src)) {
+    images.push(image.src);
+  }
+  if (!titles.includes(title.innerText)) {
+    titles.push(title.innerText);
+  }
+  if (!quotes.includes(quote.innerText)) {
+    quotes.push(quote.innerText);
   }
 }
 
@@ -163,6 +183,7 @@ function showUserPoster() {
 }
 
 function displayGrid() {
+  showSaved();
   posterGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     posterGrid.innerHTML +=
@@ -174,8 +195,8 @@ function displayGrid() {
   }
 }
 
-function removePoster() {
-  var clickedPoster = event.target.closest('.mini-poster');
+function removePoster(e) {
+  var clickedPoster = e.target.closest('.mini-poster');
   for (var i = 0; i < savedPosters.length; i++) {
     if (savedPosters[i].id === parseInt(clickedPoster.id)) {
       savedPosters.splice(i, 1);
@@ -185,21 +206,16 @@ function removePoster() {
 }
 
 // helper functions
+
+function buildRandomPoster() {
+  generateRandomPoster();
+  displayRandomPoster();
+}
+
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function pushValues() {
-  if (!images.includes(image.src)) {
-    images.push(image.src);
-  }
-  if (!titles.includes(title.innerText)) {
-    titles.push(title.innerText);
-  }
-  if (!quotes.includes(quote.innerText)) {
-    quotes.push(quote.innerText);
-  }
-}
 
 function showForm() {
   posterForm.classList.remove('hidden');

@@ -133,7 +133,7 @@ buttonNevermind.addEventListener('click', takeMeBack);
 buttonRandom.addEventListener('click', buildRandomPoster);
 buttonSavePoster.addEventListener('click', saveCurrentPoster);
 buttonShowPoster.addEventListener('click', showUserPoster);
-buttonShowSaved.addEventListener('click', displayGrid);
+buttonShowSaved.addEventListener('click', displayMiniGrid);
 posterGrid.addEventListener('dblclick', function(event) {
   removePoster(event);
 });
@@ -182,17 +182,17 @@ function showUserPoster() {
   pushValues();
 }
 
-function displayGrid() {
+function displayMiniGrid() {
   showSaved();
   posterGrid.innerHTML = "";
-  for (var i = 0; i < savedPosters.length; i++) {
+  savedPosters.forEach(poster => {
     posterGrid.innerHTML +=
-      `<article class="mini-poster" id="${savedPosters[i].id}">
-      <img class="poster-img" src="${savedPosters[i].imageURL}">
-      <h2 class="poster-title">${savedPosters[i].title}</h2>
-      <h4 class="poster-quote">${savedPosters[i].quote}</h4>
+      `<article class="mini-poster" id="${poster.id}">
+      <img class="poster-img" src="${poster.imageURL}">
+      <h2 class="poster-title">${poster.title}</h2>
+      <h4 class="poster-quote">${poster.quote}</h4>
       </article>`;
-  }
+  });
 }
 
 function removePoster(e) {
@@ -200,7 +200,7 @@ function removePoster(e) {
   for (var i = 0; i < savedPosters.length; i++) {
     if (savedPosters[i].id === parseInt(clickedPoster.id)) {
       savedPosters.splice(i, 1);
-      displayGrid();
+      displayMiniGrid();
     }
   }
 }

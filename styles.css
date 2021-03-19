@@ -4,74 +4,93 @@
 *:after {
   box-sizing: border-box;
   font-family: "EB Garamond", serif;
-  margin: auto;
-  text-align: center;
+  /* margin: auto; */
 }
 
 body {
   background: ghostwhite;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 button,
 input {
-  font-size: 20px;
-  padding: 10px 20px;
+  /* font-size: 1.2vw; */
 }
 
 button {
-  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 1% auto 1%;
+  min-width: 0;
+  white-space: nowrap;
   border: none;
   border-radius: 10px;
   color: white;
+  background: black;
+  padding: 1vh 2vw 1vh 2vw;
+  font-size: 1.2vw;
 }
 
 button:hover {
   background: darkslateblue;
 }
 
+.main-buttons {
+  display: flex;
+}
+
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 /* ~~~~~ MAIN POSTER SECTION ~~~~~ */
 .main-poster {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .poster {
   background: black;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin: 20px auto;
-  padding: 50px 20px;
-  width: 70%;
+  text-align: center;
+  margin-top: 1%;
+  padding: 4%;
+  width: 120vh;
+  height: 85vh;
 }
 
 .poster-img {
   background-size: cover;
   border: 2px solid white;
-  height: 450px;
-  width: 800px;
-}
-
-.poster-title,
-.poster-quote {
-  color: white;
-  line-height: 1;
-  width: 90%;
+  height: 70%;
+  width: 85%;
+  align-self: center;
 }
 
 .poster-title {
-  font-size: 60px;
+  color: white;
+  font-size: 8vh;
   font-weight: normal;
-  letter-spacing: 20px;
-  margin-bottom: 10px;
+  letter-spacing: 2vh;
+  margin: 1% 0 0 0;
   text-transform: uppercase;
 }
 
-.main-poster button {
-  margin: 10px;
+.poster-quote {
+  color: white;
+  font-size: 3vh;
+  font-weight: normal;
+  margin-top: 2%;
+  margin-bottom: 1vh;
+  justify-self: center;
 }
 
 /* ~~~~~ POSTER FORM SECTION ~~~~~ */
@@ -126,7 +145,7 @@ button:hover {
 }
 
 .mini-poster img {
-  height:200px;
+  height: 200px;
   width: 300px;
 }
 

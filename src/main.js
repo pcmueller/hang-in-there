@@ -1,7 +1,5 @@
 // query selector variables go here 👇
 
-import Poster from './poster.js';
-
 // display elements
 let image = document.querySelector('.poster-img');
 let mainPoster = document.querySelector('.main-poster');

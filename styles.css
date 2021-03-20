@@ -94,31 +94,53 @@ button:hover {
 .poster-form {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  margin-top: 4%;
+  width: 40%;
 }
 
 .poster-form h2 {
-  margin-bottom: 30px;
+  font-size: 5vh;
+  margin-bottom: 8%;
+  width: 100%;
+}
+
+.poster-form label {
+  font-size: 4vh;
+  margin-bottom: 2%;
 }
 
 .poster-form form {
   align-content: center;
   display: flex;
   flex-direction: column;
-  width: 40%;
 }
 
 .poster-form input {
   display: block;
-  margin-bottom: 20px;
+  font-size: 3vh;
+  margin-bottom: 8%;
   width: 100%;
+  text-align: center;
+
 }
 
 .poster-form .divider {
   border-bottom: 1px solid black;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 400px;
+  margin: 7%;
+  width: 100%;
+  align-self: center;
+}
+
+.make-poster {
+  width: 35%;
+  font-size: 3vh;
+  align-self: center;
+}
+
+.show-main {
+  width: 45%;
+  font-size: 2.5vh;
+  align-self: center;
 }
 
 /* ~~~~~ SAVED POSTER SECTION ~~~~~ */
